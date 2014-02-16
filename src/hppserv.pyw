@@ -20,8 +20,8 @@
 ################################################################################
 
 def Run():
-    import HPPApp
-    HPPApp.Run()
+    import mainapp
+    mainapp.Run()
 
 if __name__ == '__main__':
     Run()

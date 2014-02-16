@@ -22,7 +22,7 @@
 
 import wx
 
-import HPPGui
+import maingui
 
 import hppserv
 
@@ -46,13 +46,13 @@ class WxQueue(object):
 
 
 # Implementing HPPFrame
-class HPPFrame(HPPGui.HPPFrame):
+class HPPFrame(maingui.HPPFrame):
     def createHpp(self):
 	self.hppserv = hppserv.HPPThread(qout=self.qout)
 
 
     def __init__(self, parent):
-	HPPGui.HPPFrame.__init__(self, parent)
+	maingui.HPPFrame.__init__(self, parent)
 
         self.config = wx.Config('HPPServ', 'HPPServ');
         self.config.SetRecordDefaults(True)
@@ -206,7 +206,7 @@ class HPPFrame(HPPGui.HPPFrame):
 
     def OnButtonClickAbout(self, event):
         event.Skip()
-        dlg = HPPGui.AboutDialog(self)
+        dlg = maingui.AboutDialog(self)
         dlg.ShowModal()
         
 

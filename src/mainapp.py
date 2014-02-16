@@ -20,10 +20,11 @@
 ################################################################################
 import wx
 
-import HPPFrame
+import appconstants
+import mainframe
 
 def Run():
-    hppApp = HPPApp(0)
+    hppApp = HPPApp(redirect=False)
     hppApp.MainLoop()
 
 
@@ -32,9 +33,13 @@ class HPPApp(wx.App):
         wx.Log_SetActiveTarget(wx.LogStderr())
         # wx.Log_SetActiveTarget(wx.LogBuffer())
 
-        frame = HPPFrame.HPPFrame(None)
+        self.SetAppName(appconstants.AppName)
+        self.SetVendorName(appconstants.VendorName)
+
+        frame = mainframe.HPPFrame(parent=None)
+        title = appconstants.AppTitle + ' - ' + appconstants.AppVersion
+        frame.SetTitle(title)
         self.SetTopWindow(frame)
         frame.Show(True)
 
         return True
-
